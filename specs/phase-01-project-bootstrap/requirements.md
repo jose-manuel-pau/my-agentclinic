@@ -10,6 +10,7 @@ Establish a minimal, production-ready baseline so upcoming nano phases can focus
 - Tailwind CSS must be configured and active in the application.
 - ESLint must be configured and runnable.
 - Prettier must be configured and runnable.
+- The root route (`/`) must provide a minimal AgentClinic home page with core branding text and a basic call-to-action.
 
 ## Non-Functional Requirements
 - Setup should remain intentionally small and fast to implement.
@@ -26,6 +27,7 @@ Establish a minimal, production-ready baseline so upcoming nano phases can focus
 - A working Next.js + TypeScript scaffold.
 - Tailwind wired into the default app styles.
 - ESLint and Prettier configuration present and usable.
+- A minimal AgentClinic home page implemented at `/` with Tailwind styling.
 - Basic README instructions for install, run, lint, and format commands.
 
 ## Confirmed Decisions

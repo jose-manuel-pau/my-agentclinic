@@ -25,10 +25,17 @@
   - `npm run lint`.
   - `npm run format` and `npm run format:check`.
 
+### Task 5 - Build Minimal AgentClinic Home Page
+- Create a minimal home page at the root route (`/`) using App Router.
+- Include a clear AgentClinic heading and short product description.
+- Add a simple call-to-action element (for example, a "Get Started" button or link placeholder).
+- Style the page using Tailwind utilities to match the bootstrap baseline.
+
 ## Task Dependencies
 - Task 1 must be completed first.
 - Task 2 and Task 3 depend on Task 1.
 - Task 4 depends on completion of Tasks 1 to 3.
+- Task 5 depends on completion of Task 2.
 
 ## Completion Definition
 Phase 01 is complete when all tasks pass the checks defined in `validation.md`.

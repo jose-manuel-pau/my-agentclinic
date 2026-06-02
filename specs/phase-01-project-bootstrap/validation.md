@@ -30,8 +30,16 @@ This file defines how to verify each task in `plan.md`.
 - `README.md` includes lint and format instructions.
 - Commands documented in README match scripts available in `package.json`.
 
+## Task 5 - Build Minimal AgentClinic Home Page
+### Validation Checklist
+- Visiting `/` renders a minimal AgentClinic home page.
+- Page includes a clear AgentClinic heading/title.
+- Page includes a short product description sentence.
+- Page includes a basic call-to-action element (button or link placeholder).
+- Page styling uses Tailwind utility classes and renders correctly.
+
 ## Final Phase Gate
 Before closing Phase 01, confirm:
 - All validation checklists above pass.
 - No out-of-scope tooling (hooks, CI, aliases) was added.
-- Scope remains limited to bootstrap foundations only.
+- Scope remains limited to bootstrap foundations plus the minimal home page.
