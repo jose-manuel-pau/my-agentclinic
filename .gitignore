@@ -5,6 +5,7 @@
 /dist
 /build
 .next
+.next-vitest
 out
 npm-debug.log*
 yarn-debug.log*

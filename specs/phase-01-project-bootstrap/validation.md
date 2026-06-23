@@ -9,7 +9,7 @@ This file defines how to verify each task in `plan.md`.
 - `npm install` finishes without errors.
 - `npm run dev` starts successfully.
 - App loads in browser without startup errors.
-- Project uses App Router structure (for example, `app/` entry layout and page files).
+- Project uses App Router structure under `src/app` with entry layout and page files.
 - TypeScript configuration files are present and valid.
 
 ## Task 2 - Configure Styling Foundation
@@ -26,16 +26,17 @@ This file defines how to verify each task in `plan.md`.
 ### Validation Checklist
 
 - `npm run lint` executes successfully.
+- `npm run test` executes successfully.
 - `npm run format:check` executes successfully.
 - `npm run format` can format files without breaking the project.
-- ESLint and Prettier config files are committed and readable.
+- ESLint, Prettier, and `vitest.config.ts` setup are committed and readable.
 
 ## Task 4 - Document Local Developer Workflow
 
 ### Validation Checklist
 
 - `README.md` includes install and run instructions.
-- `README.md` includes lint and format instructions.
+- `README.md` includes lint, test, and format instructions.
 - Commands documented in README match scripts available in `package.json`.
 
 ## Task 5 - Build Minimal AgentClinic Home Page
@@ -47,6 +48,7 @@ This file defines how to verify each task in `plan.md`.
 - Page includes a short product description sentence.
 - Page includes a basic call-to-action element (button or link placeholder).
 - Page styling uses Tailwind utility classes and renders correctly.
+- Baseline Vitest coverage validates the reusable layout exports and confirms `/` responds with an HTML content type.
 
 ## Final Phase Gate
 

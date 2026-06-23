@@ -17,7 +17,7 @@
 - **ORM:** Prisma
 - **Auth:** Auth.js (NextAuth) with role support for `agent` and `staff`
 - **Validation:** Zod for shared input schemas
-- **Testing:** Vitest (unit) + Playwright (end-to-end)
+- **Testing:** Vitest configured in `vitest.config.ts` for unit and validation checks via `npm run test`; Playwright for future end-to-end coverage.
 - **Deployment:** Vercel (app) + managed PostgreSQL
 
 ## Why This Matches Stakeholder Input

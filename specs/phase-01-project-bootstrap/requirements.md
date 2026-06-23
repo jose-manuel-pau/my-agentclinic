@@ -7,11 +7,13 @@ Establish a minimal, production-ready baseline so upcoming nano phases can focus
 ## Functional Requirements
 
 - The project must use Next.js with App Router.
+- App Router files must live under `src/app`.
 - The codebase must use TypeScript.
 - The project must use npm as the package manager.
 - Tailwind CSS must be configured and active in the application.
 - ESLint must be configured and runnable.
 - Prettier must be configured and runnable.
+- Vitest must be configured through `vitest.config.ts` and runnable for validation-oriented tests.
 - The root route (`/`) must provide a minimal AgentClinic home page with core branding text and a basic call-to-action.
 
 ## Non-Functional Requirements
@@ -32,8 +34,9 @@ Establish a minimal, production-ready baseline so upcoming nano phases can focus
 - A working Next.js + TypeScript scaffold.
 - Tailwind wired into the default app styles.
 - ESLint and Prettier configuration present and usable.
+- Vitest installed with `vitest.config.ts`, a runnable `npm run test` script, and at least one baseline test.
 - A minimal AgentClinic home page implemented at `/` with Tailwind styling.
-- Basic README instructions for install, run, lint, and format commands.
+- Basic README instructions for install, run, lint, test, and format commands.
 
 ## Confirmed Decisions
 
@@ -41,5 +44,6 @@ Establish a minimal, production-ready baseline so upcoming nano phases can focus
 - Language: TypeScript
 - Package manager: npm
 - Linting/formatting: ESLint + Prettier
+- Testing: Vitest
 - Styling: Tailwind CSS
 - Extras: none for this phase

@@ -9,6 +9,7 @@ Completed.
 ### Task 1 - Initialize Base Project - Completed
 
 - Create a Next.js project configured with TypeScript and App Router.
+- Keep the App Router files under the standard `src/app` project structure.
 - Ensure npm is used for install and script execution.
 - Verify a local development server can start.
 
@@ -23,6 +24,7 @@ Completed.
 - Ensure ESLint configuration is present and project-compatible.
 - Add Prettier configuration and ignore file as needed.
 - Add/verify scripts for lint, format, and format checks in `package.json`.
+- Add/verify a Vitest config file and script for validation-oriented tests.
 
 ### Task 4 - Document Local Developer Workflow - Completed
 
@@ -31,6 +33,7 @@ Completed.
   - `npm install`.
   - `npm run dev`.
   - `npm run lint`.
+  - `npm run test`.
   - `npm run format` and `npm run format:check`.
 
 ### Task 5 - Build Minimal AgentClinic Home Page - Completed
@@ -43,9 +46,9 @@ Completed.
 ### Task 6 - Add Main Layout Component - Completed
 
 - Create a reusable main layout component that composes header, main, and footer subcomponents.
-- Keep the header, main layout, and footer implementations in separate component files.
-- Add a component-level CSS file, import it from the layout component, and use it for the shell structure.
+- Keep the header, main layout, footer, local barrel export, and CSS module colocated under `src/components/main-layout`.
 - Link the root home page to the reusable layout component.
+- Add a baseline Vitest test in the root `tests/` folder covering the layout component exports and the `/` HTML response.
 
 ## Task Dependencies
 
@@ -62,5 +65,5 @@ Phase 01 is complete when all tasks pass the checks defined in `validation.md`.
 ## Completion Notes
 
 - Phase 01 tasks 1-6 are complete.
-- Validation checks pass locally.
+- Validation checks, including `npm run test`, pass locally.
 - No out-of-scope hooks, CI pipeline, or custom path aliases were added.
