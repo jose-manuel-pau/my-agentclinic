@@ -18,6 +18,7 @@ Completed.
 - Install and configure Tailwind CSS according to Next.js guidance.
 - Connect Tailwind to global styles so utility classes are available in app pages/components.
 - Apply a small Tailwind class set on the default page to confirm style rendering.
+- Establish mobile-first responsive styling conventions.
 
 ### Task 3 - Configure Linting and Formatting - Completed
 
@@ -42,12 +43,14 @@ Completed.
 - Include a clear AgentClinic heading and short product description.
 - Add a simple call-to-action element (for example, a "Get Started" button or link placeholder).
 - Style the page using Tailwind utilities to match the bootstrap baseline.
+- Ensure the page adapts cleanly across mobile, tablet, and desktop widths.
 
 ### Task 6 - Add Main Layout Component - Completed
 
 - Create a reusable main layout component that composes header, main, and footer subcomponents.
 - Keep the header, main layout, footer, local barrel export, and CSS module colocated under `src/components/main-layout`.
 - Link the root home page to the reusable layout component.
+- Ensure header, main, and footer wrap or resize without overlapping content.
 - Add a baseline Vitest test in the root `tests/` folder covering the layout component exports and the `/` HTML response.
 
 ## Task Dependencies

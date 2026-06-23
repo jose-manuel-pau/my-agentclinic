@@ -6,12 +6,13 @@
 - Fast team onboarding and maintainable architecture.
 - Strong support for dashboard-oriented interfaces.
 - Modern browser compatibility by default.
+- Responsive web UI across mobile, tablet, and desktop viewports.
 
 ## Recommended Stack
 
 - **Framework Recommendation:** Next.js (App Router), using server-side TypeScript as the default execution model for backend logic.
 - **Frontend:** React + TypeScript, with Server Components where useful for fast dashboard rendering.
-- **UI System:** Tailwind CSS + component primitives (accessible, consistent dashboards)
+- **UI System:** Tailwind CSS + component primitives (accessible, responsive, consistent dashboards)
 - **Backend:** Server-side TypeScript in Next.js route handlers and server actions; keep clear service boundaries for future extraction.
 - **Database:** PostgreSQL
 - **ORM:** Prisma
@@ -47,3 +48,9 @@
 
 - Support latest two versions of major evergreen browsers: Chrome, Edge, Firefox, Safari.
 - Graceful degradation for non-critical visual enhancements.
+
+## Responsive Design Policy
+
+- Build mobile-first layouts using Tailwind responsive utilities and component-level CSS where appropriate.
+- Every user-facing page or feature must remain usable at mobile, tablet, and desktop widths.
+- Navigation, forms, dashboards, tables, and call-to-action elements must wrap, stack, scroll, or resize without overlapping content.

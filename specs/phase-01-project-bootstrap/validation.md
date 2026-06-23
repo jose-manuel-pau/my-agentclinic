@@ -20,6 +20,7 @@ This file defines how to verify each task in `plan.md`.
 - Tailwind configuration is present and linked to source content paths.
 - Global stylesheet includes Tailwind directives.
 - A page renders visible Tailwind styling (for example spacing, typography, or color utility classes).
+- Responsive utility classes or CSS rules are present for mobile-first layout behavior.
 
 ## Task 3 - Configure Linting and Formatting
 
@@ -48,6 +49,7 @@ This file defines how to verify each task in `plan.md`.
 - Page includes a short product description sentence.
 - Page includes a basic call-to-action element (button or link placeholder).
 - Page styling uses Tailwind utility classes and renders correctly.
+- Page and layout remain usable without content overlap at mobile, tablet, and desktop widths.
 - Baseline Vitest coverage validates the reusable layout exports and confirms `/` responds with an HTML content type.
 
 ## Final Phase Gate
@@ -57,3 +59,4 @@ Before closing Phase 01, confirm:
 - All validation checklists above pass.
 - No out-of-scope tooling (hooks, CI, aliases) was added.
 - Scope remains limited to bootstrap foundations plus the minimal home page.
+- Responsive design expectations are documented for future user-facing features.
