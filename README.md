@@ -1,5 +1,41 @@
 # AgentClinic
 
+AgentClinic is a Next.js application for agent healthcare workflows.
+
+## Local Development
+
+### Prerequisites
+
+- Node.js 20.9.0 or newer
+- npm
+
+### Install
+
+```bash
+npm install
+```
+
+### Run
+
+```bash
+npm run dev
+```
+
+The app runs at `http://localhost:3000` by default.
+
+### Quality Checks
+
+```bash
+npm run lint
+npm run format:check
+```
+
+### Format Files
+
+```bash
+npm run format
+```
+
 ## Input from stakeholders
 
 - Mary in engineering wants a reliable site with a popular stack based on TypeScript, giving agents and staff a dashboard for easy access.
