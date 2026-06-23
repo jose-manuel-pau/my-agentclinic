@@ -25,4 +25,5 @@ Become the most trusted care center for agents and staff: clinically reliable un
 2. Fast clarity: dashboards should surface the next best action immediately.
 3. Full care journey: from symptom report to scheduled support, every step must connect.
 4. Charm with function: playful tone, professional outcomes.
-5. Ship small, learn fast: steady improvements beat giant rewrites and existential refactors.
+5. Responsive by default: every web UI must work clearly on mobile, tablet, and desktop viewports.
+6. Ship small, learn fast: steady improvements beat giant rewrites and existential refactors.

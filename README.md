@@ -27,6 +27,7 @@ The app runs at `http://localhost:3000` by default.
 
 ```bash
 npm run lint
+npm run test
 npm run format:check
 ```
 
