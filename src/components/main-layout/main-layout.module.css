@@ -1,0 +1,48 @@
+.shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: #f8fafc;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.brand {
+  color: #12334d;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navLink {
+  color: #0870ba;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #0f8bdc;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.footer {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  color: #475569;
+  font-size: 0.875rem;
+}
