@@ -17,6 +17,7 @@ Every user-facing web UI phase must preserve responsive behavior across mobile, 
 - Implement Auth.js login flow.
 - Add role model: `agent` and `staff`.
 - Ensure auth screens are responsive.
+- Use PicoCSS for Phase 02 auth, dashboard, and profile UI styling.
 - Create base `agent` dashboard layout.
 - Create base `staff` dashboard layout.
 - Ensure dashboard shells adapt across mobile, tablet, and desktop viewports.

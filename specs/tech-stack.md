@@ -12,7 +12,7 @@
 
 - **Framework Recommendation:** Next.js (App Router), using server-side TypeScript as the default execution model for backend logic.
 - **Frontend:** React + TypeScript, with Server Components where useful for fast dashboard rendering.
-- **UI System:** Tailwind CSS + component primitives (accessible, responsive, consistent dashboards)
+- **UI System:** Tailwind CSS for the bootstrap foundation; PicoCSS for Phase 02 auth, dashboard, and profile screens; component primitives should remain accessible, responsive, and consistent.
 - **Backend:** Server-side TypeScript in Next.js route handlers and server actions; keep clear service boundaries for future extraction.
 - **Database:** PostgreSQL
 - **ORM:** Prisma
@@ -51,6 +51,6 @@
 
 ## Responsive Design Policy
 
-- Build mobile-first layouts using Tailwind responsive utilities and component-level CSS where appropriate.
+- Build mobile-first layouts using PicoCSS defaults for Phase 02 app screens, with Tailwind responsive utilities and component-level CSS where they already exist or remain appropriate.
 - Every user-facing page or feature must remain usable at mobile, tablet, and desktop widths.
 - Navigation, forms, dashboards, tables, and call-to-action elements must wrap, stack, scroll, or resize without overlapping content.
