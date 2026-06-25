@@ -1,7 +1,6 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { loginCredentialsSchema } from "./auth-schemas";
-import { findDemoUserByCredentials } from "./demo-users";
+import { authenticateUser } from "./auth-users";
 import { roleSchema } from "./roles";
 
 export const authOptions: NextAuthOptions = {
@@ -16,13 +15,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const parsedCredentials = loginCredentialsSchema.safeParse(credentials);
-
-        if (!parsedCredentials.success) {
-          return null;
-        }
-
-        const user = findDemoUserByCredentials(parsedCredentials.data);
+        const user = await authenticateUser(credentials);
 
         if (!user) {
           return null;

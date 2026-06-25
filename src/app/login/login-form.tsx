@@ -4,7 +4,6 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { loginCredentialsSchema } from "../../lib/auth-schemas";
-import { dashboardPathForRole } from "../../lib/roles";
 
 type LoginState = {
   error: string;
@@ -39,15 +38,11 @@ export function LoginForm() {
     });
 
     if (!result?.ok) {
-      setState({ error: "The demo credentials were not accepted.", isSubmitting: false });
+      setState({ error: "The credentials were not accepted.", isSubmitting: false });
       return;
     }
 
-    const targetRole = parsedCredentials.data.email.toLowerCase().startsWith("staff")
-      ? "staff"
-      : "agent";
-
-    router.push(dashboardPathForRole(targetRole));
+    router.push("/dashboard");
     router.refresh();
   }
 

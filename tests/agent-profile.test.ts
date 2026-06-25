@@ -8,7 +8,7 @@ describe("agent profile data", () => {
 
     const profile = await getAgentProfileForUser("demo-agent");
 
-    process.env.DATABASE_URL = originalDatabaseUrl;
+    restoreDatabaseUrl(originalDatabaseUrl);
 
     expect(profile?.codename).toBe("Nightingale");
   });
@@ -19,8 +19,17 @@ describe("agent profile data", () => {
 
     const profile = await getAgentProfileForUser("missing-agent");
 
-    process.env.DATABASE_URL = originalDatabaseUrl;
+    restoreDatabaseUrl(originalDatabaseUrl);
 
     expect(profile).toBeNull();
   });
 });
+
+function restoreDatabaseUrl(value: string | undefined) {
+  if (value === undefined) {
+    delete process.env.DATABASE_URL;
+    return;
+  }
+
+  process.env.DATABASE_URL = value;
+}

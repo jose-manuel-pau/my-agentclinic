@@ -23,15 +23,11 @@ export async function getAgentProfileForUser(userId: string): Promise<AgentProfi
     return getDemoAgentProfile(userId);
   }
 
-  try {
-    const profile = await getPrismaClient().agentProfile.findUnique({
-      where: {
-        userId,
-      },
-    });
+  const profile = await getPrismaClient().agentProfile.findUnique({
+    where: {
+      userId,
+    },
+  });
 
-    return profile ? toAgentProfileView(profile) : getDemoAgentProfile(userId);
-  } catch {
-    return getDemoAgentProfile(userId);
-  }
+  return profile ? toAgentProfileView(profile) : null;
 }
