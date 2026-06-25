@@ -1,7 +1,13 @@
 # Changelog
 
+## 2026-06-25
+
+- Implemented the Phase 02 data spine, authentication, dashboards, and agent profile.
+- Added the Phase 02 feature spec for agents and ailments with PicoCSS.
+
 ## 2026-06-23
 
+- Combined roadmap phases 2-5 into a single phase and added a reusable changelog skill.
 - Ensured mobile-first responsive design is implemented in the app.
 - Added Vitest setup and tests and reorganized the folder structure to a more standard Next.js project.
 - Merged phase 01 project bootstrap pull request.
