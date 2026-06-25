@@ -2,11 +2,15 @@ import { MainLayoutFooter } from "./footer";
 import { MainLayoutHeader } from "./header";
 import styles from "./main-layout.module.css";
 
-type LayoutChildren = {
+type MainLayoutProps = {
   children: React.ReactNode;
 };
 
-export function MainLayout({ children }: LayoutChildren) {
+type MainLayoutMainProps = {
+  children: React.ReactNode;
+};
+
+export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className={styles.shell}>
       <MainLayoutHeader />
@@ -16,6 +20,6 @@ export function MainLayout({ children }: LayoutChildren) {
   );
 }
 
-export function MainLayoutMain({ children }: LayoutChildren) {
+export function MainLayoutMain({ children }: MainLayoutMainProps) {
   return <main className={styles.main}>{children}</main>;
 }

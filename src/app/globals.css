@@ -1,3 +1,5 @@
+@import "@picocss/pico/css/pico.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,5 +11,84 @@
 
   body {
     @apply bg-white font-sans text-slate-950 antialiased;
+  }
+}
+
+.auth-layout {
+  align-items: center;
+  display: grid;
+  min-height: 100vh;
+  padding-block: clamp(2rem, 7vw, 5rem);
+}
+
+.auth-panel {
+  margin-inline: auto;
+  max-width: 36rem;
+  width: 100%;
+}
+
+.dashboard-layout {
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.dashboard-nav {
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-header {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  margin-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.dashboard-eyebrow {
+  color: var(--pico-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.dashboard-actions {
+  align-self: end;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.profile-card {
+  grid-column: 1 / -1;
+}
+
+.profile-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.profile-list div {
+  border-top: 1px solid var(--pico-muted-border-color);
+  padding-top: 0.75rem;
+}
+
+.profile-list dt {
+  color: var(--pico-muted-color);
+  font-size: 0.85rem;
+}
+
+.profile-list dd {
+  margin: 0.25rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .dashboard-header {
+    align-items: end;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 }

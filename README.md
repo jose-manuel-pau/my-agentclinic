@@ -8,12 +8,16 @@ AgentClinic is a Next.js application for agent healthcare workflows.
 
 - Node.js 20.9.0 or newer
 - npm
+- PostgreSQL for Prisma-backed local data
 
 ### Install
 
 ```bash
 npm install
 ```
+
+Copy `.env.example` to `.env.local` and set `DATABASE_URL`, `NEXTAUTH_SECRET`, and
+`NEXTAUTH_URL`.
 
 ### Run
 
@@ -23,9 +27,22 @@ npm run dev
 
 The app runs at `http://localhost:3000` by default.
 
+Demo login accounts:
+
+- Agent: `agent@agentclinic.local` / `agent-demo`
+- Staff: `staff@agentclinic.local` / `staff-demo`
+
+### Data Setup
+
+```bash
+npm run prisma:generate
+npm run prisma:migrate
+```
+
 ### Quality Checks
 
 ```bash
+npm run prisma:validate
 npm run lint
 npm run test
 npm run format:check
