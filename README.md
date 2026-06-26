@@ -29,6 +29,10 @@ npm run dev
 
 The app runs at `http://localhost:3000` by default.
 
+Public pages:
+
+- Feedback form: `http://localhost:3000/feedback`
+
 Demo login accounts:
 
 - Agent: `agent@agentclinic.local` / `agent-demo`
@@ -68,6 +72,15 @@ If PostgreSQL is already running but the `agentclinic` database does not exist y
 11. Return to the agent appointment page and confirm the status is visible.
 12. As the agent, cancel an owned appointment request.
 13. Resize the ailment, therapy, appointment, and triage screens at mobile, tablet, and desktop widths.
+
+### Feedback Form Smoke Path
+
+1. Open `/feedback`.
+2. Confirm the form displays name, email, message, and rating controls.
+3. Submit invalid feedback and confirm validation feedback appears.
+4. Submit valid placeholder-style feedback and confirm the success message appears.
+5. Confirm the submission exists in PostgreSQL.
+6. Resize the form at mobile, tablet, and desktop widths.
 
 ### Quality Checks
 
