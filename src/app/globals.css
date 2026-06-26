@@ -5,13 +5,28 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
   html {
+    background: #f8fafc;
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white font-sans text-slate-950 antialiased;
+    @apply bg-slate-50 font-sans text-slate-950 antialiased;
   }
+}
+
+main.container,
+section.container,
+.auth-layout.container,
+.dashboard-layout.container {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  width: 100%;
 }
 
 .auth-layout {
@@ -36,11 +51,43 @@
   gap: 1rem;
 }
 
+.dashboard-nav ul {
+  flex-wrap: wrap;
+}
+
+.dashboard-nav strong,
+.dashboard-nav a {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.dashboard-nav a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+.dashboard-nav a:hover,
+.dashboard-nav a:focus-visible {
+  color: #0870ba;
+}
+
 .dashboard-header {
   display: grid;
   gap: 1rem;
   grid-template-columns: minmax(0, 1fr);
   margin-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.dashboard-header h1 {
+  color: #0f172a;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.dashboard-header p:not(.dashboard-eyebrow) {
+  color: #334155;
+  font-weight: 500;
 }
 
 .dashboard-eyebrow {
@@ -62,8 +109,94 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
 
+.auth-panel,
+.dashboard-grid article,
+.care-list-item {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.dashboard-grid article {
+  border: 1px solid #e2e8f0;
+}
+
+.dashboard-grid article h2,
+.care-list-item h3,
+.profile-card h2 {
+  color: #0f172a;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.dashboard-grid article p,
+.care-list-item p {
+  color: #334155;
+}
+
 .profile-card {
   grid-column: 1 / -1;
+}
+
+.dashboard-card-wide {
+  grid-column: 1 / -1;
+}
+
+.responsive-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.care-list-item {
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.care-list-item header {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.care-list-item h3 {
+  margin: 0;
+}
+
+.status-badge {
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0.35rem 0.6rem;
+  text-transform: capitalize;
+}
+
+.severity-high,
+.status-cancelled {
+  border-color: #c62828;
+  color: #c62828;
+}
+
+.severity-medium,
+.status-requested,
+.status-rescheduled {
+  border-color: #9a6700;
+  color: #9a6700;
+}
+
+.severity-low,
+.status-confirmed,
+.status-completed {
+  border-color: #1b7f3a;
+  color: #1b7f3a;
+}
+
+.triage-form {
+  margin-top: 1rem;
 }
 
 .profile-list {

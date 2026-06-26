@@ -1,12 +1,23 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { getAuthSecret } from "./auth-secret";
 import { authenticateUser } from "./auth-users";
 import { roleSchema } from "./roles";
 
 export const authOptions: NextAuthOptions = {
+  logger: {
+    error(code, metadata) {
+      if (code === "JWT_SESSION_ERROR") {
+        return;
+      }
+
+      console.error(`[next-auth][error][${code}]`, metadata);
+    },
+  },
   pages: {
     signIn: "/login",
   },
+  secret: getAuthSecret(),
   providers: [
     CredentialsProvider({
       name: "Demo credentials",

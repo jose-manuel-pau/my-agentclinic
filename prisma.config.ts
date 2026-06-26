@@ -1,8 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { defineConfig } from "prisma/config";
-
-const defaultDatabaseUrl =
-  "postgresql://postgres:postgres@localhost:5432/agentclinic?schema=public";
+import { getDatabaseUrl } from "./src/lib/database-url";
 
 const loadedEnvKeys = new Set<string>();
 
@@ -39,6 +37,6 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    url: process.env.DATABASE_URL ?? defaultDatabaseUrl,
+    url: getDatabaseUrl(),
   },
 });
