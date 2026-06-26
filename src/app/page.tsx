@@ -18,6 +18,9 @@ export default function HomePage() {
           <a href="/login" id="get-started" role="button">
             Get Started
           </a>
+          <a className="secondary" href="/feedback" role="button">
+            Submit Feedback
+          </a>
         </div>
       </section>
     </MainLayout>
