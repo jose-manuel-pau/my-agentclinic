@@ -11,19 +11,37 @@ enum UserRole {
   staff
 }
 
+enum AilmentSeverity {
+  low
+  medium
+  high
+}
+
+enum AppointmentStatus {
+  requested
+  confirmed
+  rescheduled
+  cancelled
+  completed
+}
+
 model User {
-  id            String        @id @default(cuid())
-  name          String?
-  email         String        @unique
-  emailVerified DateTime?
-  image         String?
-  passwordHash  String?
-  role          UserRole      @default(agent)
-  accounts      Account[]
-  sessions      Session[]
-  agentProfile  AgentProfile?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  id                   String                     @id @default(cuid())
+  name                 String?
+  email                String                     @unique
+  emailVerified        DateTime?
+  image                String?
+  passwordHash         String?
+  role                 UserRole                   @default(agent)
+  accounts             Account[]
+  sessions             Session[]
+  agentProfile         AgentProfile?
+  ailmentReports       AilmentReport[]            @relation("AgentAilmentReports")
+  therapyEntries       TherapyEntry[]             @relation("StaffTherapyEntries")
+  appointmentRequests  AppointmentRequest[]       @relation("AgentAppointmentRequests")
+  appointmentChanges   AppointmentStatusHistory[] @relation("StaffAppointmentChanges")
+  createdAt            DateTime                   @default(now())
+  updatedAt            DateTime                   @updatedAt
 }
 
 model AgentProfile {
@@ -71,4 +89,73 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model AilmentReport {
+  id                  String               @id @default(cuid())
+  agentId             String
+  title               String
+  description         String
+  severity            AilmentSeverity      @default(medium)
+  agent               User                 @relation("AgentAilmentReports", fields: [agentId], references: [id], onDelete: Cascade)
+  appointmentRequests AppointmentRequest[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+
+  @@index([agentId])
+  @@index([createdAt])
+}
+
+model TherapyEntry {
+  id                  String               @id @default(cuid())
+  name                String
+  description         String
+  durationMinutes     Int
+  active              Boolean              @default(true)
+  createdById         String
+  createdBy           User                 @relation("StaffTherapyEntries", fields: [createdById], references: [id], onDelete: Restrict)
+  appointmentRequests AppointmentRequest[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+
+  @@index([active])
+  @@index([createdById])
+}
+
+model AppointmentRequest {
+  id              String                     @id @default(cuid())
+  agentId         String
+  ailmentReportId String
+  therapyEntryId  String?
+  status          AppointmentStatus          @default(requested)
+  requestedAt     DateTime                   @default(now())
+  scheduledFor    DateTime?
+  notes           String?
+  agent           User                       @relation("AgentAppointmentRequests", fields: [agentId], references: [id], onDelete: Cascade)
+  ailmentReport   AilmentReport              @relation(fields: [ailmentReportId], references: [id], onDelete: Cascade)
+  therapyEntry    TherapyEntry?              @relation(fields: [therapyEntryId], references: [id], onDelete: SetNull)
+  statusHistory   AppointmentStatusHistory[]
+  createdAt       DateTime                   @default(now())
+  updatedAt       DateTime                   @updatedAt
+
+  @@index([agentId])
+  @@index([ailmentReportId])
+  @@index([therapyEntryId])
+  @@index([status])
+}
+
+model AppointmentStatusHistory {
+  id                   String             @id @default(cuid())
+  appointmentRequestId String
+  status               AppointmentStatus
+  note                 String?
+  changedById          String?
+  scheduledFor         DateTime?
+  appointmentRequest   AppointmentRequest @relation(fields: [appointmentRequestId], references: [id], onDelete: Cascade)
+  changedBy            User?              @relation("StaffAppointmentChanges", fields: [changedById], references: [id], onDelete: SetNull)
+  createdAt            DateTime           @default(now())
+
+  @@index([appointmentRequestId])
+  @@index([changedById])
+  @@index([status])
 }

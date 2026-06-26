@@ -30,10 +30,36 @@ export function DashboardShell({
             <Link href={`/dashboard/${role}`}>Dashboard</Link>
           </li>
           {role === "agent" ? (
-            <li>
-              <Link href="/dashboard/agent/profile">Profile</Link>
-            </li>
-          ) : null}
+            <>
+              <li>
+                <Link href="/dashboard/agent/ailments">Ailments</Link>
+              </li>
+              <li>
+                <Link href="/dashboard/agent/therapies">Therapies</Link>
+              </li>
+              <li>
+                <Link href="/dashboard/agent/appointments">Appointments</Link>
+              </li>
+              <li>
+                <Link href="/dashboard/agent/profile">Profile</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link href="/dashboard/staff/ailments">Ailments</Link>
+              </li>
+              <li>
+                <Link href="/dashboard/staff/therapies">Therapies</Link>
+              </li>
+              <li>
+                <Link href="/dashboard/staff/appointments">Triage</Link>
+              </li>
+              <li>
+                <Link href="/dashboard/staff/agents">Agents</Link>
+              </li>
+            </>
+          )}
           <li>
             <Link href="/api/auth/signout">Sign out</Link>
           </li>
