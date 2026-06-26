@@ -1,7 +1,12 @@
 # Changelog
 
+## 2026-06-26
+
+- Implemented the MVP care loop and local PostgreSQL setup.
+
 ## 2026-06-25
 
+- Added the MVP care loop feature spec.
 - Implemented the Phase 02 data spine, authentication, dashboards, and agent profile.
 - Added the Phase 02 feature spec for agents and ailments with PicoCSS.
 
