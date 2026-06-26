@@ -1,4 +1,4 @@
-# AgentClinic Technical Stack Constitution
+# AgenticClinic Technical Stack
 
 ## Stack Goals
 
@@ -7,8 +7,9 @@
 - Strong support for dashboard-oriented interfaces.
 - Modern browser compatibility by default.
 - Responsive web UI across mobile, tablet, and desktop viewports.
+- Friendly local setup for developers learning the stack.
 
-## Recommended Stack
+## Current Stack
 
 - **Framework Recommendation:** Next.js (App Router), using server-side TypeScript as the default execution model for backend logic.
 - **Frontend:** React + TypeScript, with Server Components where useful for fast dashboard rendering.
@@ -21,28 +22,42 @@
 - **Testing:** Vitest configured in `vitest.config.ts` for unit and validation checks via `npm run test`; Playwright for future end-to-end coverage.
 - **Deployment:** Vercel (app) + managed PostgreSQL
 
+## Local Database Policy
+
+- Native PostgreSQL on Windows is the preferred local database path for this project.
+- Docker Desktop must not be required for local development.
+- Docker Compose support can remain as an optional convenience for developers who already have a compatible container runtime.
+- Local setup should document `npm run db:create`, `npm run db:check`, `npm run prisma:migrate`, and `npm run prisma:seed`.
+- The default local database should remain easy to inspect with standard PostgreSQL tools.
+
 ## Why This Matches Stakeholder Input
 
 - **Mary:** Server-side TypeScript with a mainstream framework keeps reliability high and maintenance costs predictable.
 - **Susan:** Strong data model and API ergonomics support agents/ailments/therapies/bookings features.
 - **Steve:** Next.js + modern UI stack supports polished, high-performing browser experiences.
+- **Learners:** The stack is popular, inspectable, and broad enough to teach frontend, backend, database, auth, validation, and tests in one project.
 
 ## Baseline Architecture
 
-1. Role-aware dashboards (`agent`, `staff`) as primary entry points.
-2. Domain modules:
+1. App Router pages and layouts under `src/app`.
+2. Role-aware dashboards (`agent`, `staff`) as primary authenticated entry points.
+3. Domain modules:
    - Agents
    - Ailments
    - Therapies
    - Appointments
-3. Shared schema validation at API boundaries.
-4. Audit-friendly booking state transitions (requested, confirmed, completed, cancelled).
+   - Feedback
+   - Reviews
+   - Marketing content
+4. Shared schema validation at API and server-action boundaries.
+5. Audit-friendly booking state transitions (requested, confirmed, rescheduled, cancelled).
 
 ## Server-Side TypeScript Policy
 
 - Business rules run on the server by default.
 - Client code focuses on presentation and interaction.
 - API contracts and domain schemas are typed end-to-end using TypeScript + Zod.
+- Feature code should be easy for learners to trace from page to validation to persistence.
 
 ## Browser Support Policy
 

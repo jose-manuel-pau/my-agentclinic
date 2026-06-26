@@ -1,86 +1,57 @@
-# AgentClinic Nano-Phase Roadmap
+# AgenticClinic Roadmap
 
-Each phase is intentionally tiny: 1-3 features, completed in a day or less, and released quickly for feedback.
+This roadmap follows `TODO.md` and keeps work intentionally tiny. Each phase should be small enough to implement, validate, and review independently.
 
-Every user-facing web UI phase must preserve responsive behavior across mobile, tablet, and desktop viewports.
+Every user-facing phase must preserve responsive behavior across mobile, tablet, and desktop viewports.
 
-## Nano Phase 01 - Project Bootstrap (Completed)
+## Phase 01 - Feedback Form
 
-- Initialize Next.js + TypeScript repository.
-- Add linting and formatting.
-- Establish responsive layout foundations.
+- Add a public feedback form for humans to confess what they did to their agents.
+- Store or route feedback using the existing server-side TypeScript patterns.
+- Validate inputs with Zod where data crosses a server boundary.
+- Add Vitest coverage for validation or domain helpers.
+- Keep the form readable and usable on mobile, tablet, and desktop.
 
-## Nano Phase 02 - Data Spine, Auth, Dashboards, and Profile (<= 1 day)
+## Phase 02 - Feedback Review Surface
 
-- Configure PostgreSQL connection.
-- Add Prisma with initial migrations.
-- Implement Auth.js login flow.
-- Add role model: `agent` and `staff`.
-- Ensure auth screens are responsive.
-- Use PicoCSS for Phase 02 auth, dashboard, and profile UI styling.
-- Create base `agent` dashboard layout.
-- Create base `staff` dashboard layout.
-- Ensure dashboard shells adapt across mobile, tablet, and desktop viewports.
-- Agent can view their profile details.
-- Profile content remains readable and navigable on mobile, tablet, and desktop.
+- Add a small admin or staff-facing feedback list.
+- Show submitted feedback in a simple, scan-friendly layout.
+- Include empty, loading, and basic error states where relevant.
+- Keep access control aligned with the existing auth and role model.
 
-## Nano Phase 03 - Ailment Reporting (<= 1 day)
+## Phase 03 - Customer Reviews
 
-- Agent can create and submit an ailment report.
-- Staff can see submitted ailment reports.
-- Reporting and review screens remain responsive.
+- Add a public customer reviews section.
+- Use satirical review content that reinforces the AgenticClinic premise.
+- Keep review cards concise, responsive, and readable.
+- Prefer static or seeded content first; persistence can come later if needed.
 
-## Nano Phase 04 - Therapy Catalog (<= 1 day)
+## Phase 04 - Review Management
 
-- Staff can create and edit therapy entries.
-- Agents can browse available therapies.
-- Therapy catalog screens remain responsive.
+- Add a tiny staff workflow for adding or editing reviews if persistence is needed.
+- Reuse existing Prisma, Zod, and server-action patterns.
+- Add focused tests for review validation or formatting.
 
-## Nano Phase 05 - Appointment Requests (<= 1 day)
+## Phase 05 - About Us Page
 
-- Agent can request an appointment tied to an ailment/therapy.
-- Appointment request flow remains responsive.
+- Add an About Us page that explains the clinic, the joke, and the learning purpose.
+- Include the address from project decisions once selected.
+- Keep the page modern, accessible, and responsive.
 
-## Nano Phase 06 - Appointment Triage (<= 1 day)
+## Phase 06 - Address and Map
 
-- Staff can confirm, reschedule, or cancel requests.
-- Appointment status is visible to agents.
-- Appointment triage screens remain responsive.
+- Add a map or map placeholder to the About Us page.
+- Prefer a simple, reliable embed or static map pattern before adding a heavy mapping dependency.
+- Document any external map provider choice before implementation.
 
-## Nano Phase 07 - In-App Notifications (<= 1 day)
+## Phase 07 - Learning Polish
 
-- Agents receive in-app booking status updates.
-- Notification surfaces remain responsive.
+- Add developer-facing README notes for the new feedback, reviews, and About Us flows.
+- Keep setup instructions clear for native PostgreSQL without Docker Desktop.
+- Run the validation gate and update the changelog before merge.
 
-## Nano Phase 08 - Reliability Guardrails (<= 1 day)
+## Continuous Rules
 
-- Add error boundaries and API error handling.
-- Add logging for key booking actions.
-
-## Nano Phase 09 - Core Test Coverage (<= 1 day)
-
-- Add unit tests for booking status transitions.
-- Add one end-to-end test for request-to-confirm flow.
-
-## Nano Phase 10 - UX Polish Pass (<= 1 day)
-
-- Improve loading and empty states on dashboards.
-- Refine responsive visual consistency for modern browser UX.
-
-## Nano Phase 11 - Recommendation Iteration (<= 1 day)
-
-- Add first-pass therapy recommendation rules.
-- Recommendation UI remains responsive when surfaced.
-
-## Nano Phase 12 - Feedback Loop (<= 1 day)
-
-- Add lightweight in-product feedback capture.
-- Review feedback and reorder next nano phases.
-- Feedback capture remains responsive.
-
-## Continuous Success Metrics
-
-- Appointment booking completion rate.
-- Median time from ailment report to confirmed appointment.
-- Weekly active agents and staff.
-- Critical flow error rate.
+- Keep each feature spec small and dated.
+- Validate with lint, tests, build, Prisma checks when database behavior changes, and responsive smoke review.
+- Preserve the satirical tone while keeping implementation patterns teachable.
